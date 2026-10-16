@@ -1,0 +1,6 @@
+# Cho phép tất cả các công cụ tìm kiếm cào dữ liệu
+User-agent: *
+Allow: /
+
+# Đường dẫn đến file Sitemap trên OnRender
+Sitemap: https://briannguyen.onrender.com/sitemap.xml
