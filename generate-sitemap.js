@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Thay domain trang web của bạn vào đây
-const DOMAIN = 'https://briannguyen.onrender.com/'; 
+const DOMAIN = 'https://briannguyen.onrender.com'; 
 
 function getHtmlFiles(dirPath, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
