@@ -1,0 +1,31 @@
+name: Generate Sitemap Automatically
+
+on:
+  push:
+    branches:
+      - main # Hoặc 'master' tùy tên branch chính của bạn
+    paths:
+      - '**.html' # Chỉ chạy khi có thêm hoặc sửa file .html
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run Sitemap Generator
+        run: node generate-sitemap.js
+
+      - name: Commit and Push sitemap.xml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "auto: update sitemap.xml" || exit 0
+          git push
