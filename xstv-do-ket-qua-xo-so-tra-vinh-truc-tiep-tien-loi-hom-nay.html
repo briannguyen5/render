@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSTV: Dò kết quả Xổ số Trà Vinh trực tiếp tiện lợi hôm nay - Brian Nguyen</title>
+    <link rel="canonical" href="https://briannguyen.onrender.com/">
+    
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-glow: #eff6ff;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 25px -5px rgba(37, 99, 235, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Header Banner Cố định */
+        .header-banner {
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container Main */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+
+        /* Post Content Card */
+        .post-container {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Meta Information */
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 18px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-item svg {
+            fill: currentColor;
+            width: 15px;
+            height: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Post Navigation (Trước/Sau) */
+        .post-navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .nav-card.prev {
+            text-align: left;
+        }
+
+        .nav-card.next {
+            text-align: right;
+        }
+
+        .nav-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-card.next .nav-label {
+            justify-content: flex-end;
+        }
+
+        .nav-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer Stylings */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0 30px;
+            margin-top: 40px;
+        }
+
+        .footer-group {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .footer-heading {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .social-links, .internal-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: none;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+
+        .social-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* Liên kết hệ thống */
+        .link-badge {
+            background: transparent;
+            padding: 6px 10px;
+            font-size: 0.9rem;
+            color: #64748b;
+            border: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .link-badge svg, .link-badge img {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            object-fit: contain;
+        }
+
+        .link-badge:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            main {
+                padding-top: 20px;
+            }
+            .post-container {
+                padding: 20px;
+            }
+            .post-navigation {
+                grid-template-columns: 1fr;
+            }
+            .nav-card.next {
+                text-align: left;
+            }
+            .nav-card.next .nav-label {
+                justify-content: flex-start;
+            }
+            .social-links, .internal-links {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner Cố định -->
+    <header class="header-banner">
+        <a href="https://briannguyen.onrender.com/">
+            <img src="https://cdn.upanhlaylink.com/i/Oy1QeYer.png" alt="Header Banner Blog Brian Nguyen">
+        </a>
+    </header>
+
+    <main class="container">
+        <!-- Khối Bài Viết Chi Tiết -->
+        <div class="post-container">
+            
+            <!-- Heading 1 (Title) -->
+            <h1 style="color: #c0392b; font-size: 24px; font-weight: bold; margin-bottom: 8px; line-height: 1.3;">
+                XSTV: Dò kết quả Xổ số Trà Vinh trực tiếp tiện lợi hôm nay
+            </h1>
+
+            <!-- Meta Thông Tin Bài Viết -->
+            <div class="post-meta">
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    Tác giả: <strong>Brian Nguyen</strong>
+                </span>
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    Ngày đăng: <strong>09/11/2026</strong>
+                </span>
+                <span class="meta-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    Lượt xem: <strong>18,650</strong>
+                </span>
+            </div>
+
+            <!-- Nội dung chi tiết bài viết -->
+            <article style="font-family: Arial, sans-serif; color: #333333; line-height: 1.6;">
+
+                <!-- Sapo -->
+                <div style="background-color: #f8f9fa; border-left: 4px solid #c0392b; padding: 12px 15px; font-size: 15px; font-weight: 500; color: #444444; margin-bottom: 20px; border-radius: 0 4px 4px 0;">
+                    Xem XSTV trực tiếp siêu tốc, cẩm nang tra cứu kết quả xổ số Trà Vinh Thứ Sáu mượt mà trên di động, cập nhật khung giờ mở thưởng, cơ cấu giải và trụ sở công ty.
+                </div>
+
+                <!-- Đoạn mở đầu -->
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Chào mừng bà con đã quay trở lại với không gian số hiện đại dành riêng cho những người yêu thích xổ số kiến thiết Trà Vinh khi theo dõi bảng <a href="https://xosodaiphat.com/xstv-xo-so-tra-vinh.html" target="_blank" rel="noopener" title="XSTV" style="color: #c0392b; font-weight: bold; text-decoration: underline;">XSTV</a>.
+                </p>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Trong thời đại công nghệ số bùng nổ như hiện nay, việc cầm trên tay tờ vé số và chờ đợi kết quả đã trở thành một nét văn hóa truyền thống đẹp đẽ của người dân miền Tây nói chung và tỉnh Trà Vinh nói riêng. Tuy nhiên, để bắt kịp nhịp sống hối hả, cách thức tra cứu kết quả cũng cần có sự chuyển mình mạnh mẽ để mang lại sự thuận tiện tối đa. Bài viết này sẽ hướng dẫn bà con cách cập nhật thông tin về đài Trà Vinh một cách thông minh, mượt mà và hiệu quả nhất ngay trên chiếc điện thoại của mình.
+                </p>
+
+                <!-- Heading 2 -->
+                <h2 style="color: #16a085; font-size: 20px; font-weight: bold; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #16a085; padding-bottom: 5px;">
+                    LỊCH MỞ THƯỞNG VÀ KHUNG GIỜ QUAY SỐ TRÀ VINH
+                </h2>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Để không bỏ lỡ bất kỳ khoảnh khắc hồi hộp nào, bà con cần ghi nhớ rõ lịch phát sóng trực tiếp của đài Trà Vinh. Theo quy định chung của khu vực miền Nam, đài Trà Vinh sẽ tiến hành quay thưởng định kỳ vào mỗi thứ Sáu hàng tuần bên cạnh đài Vĩnh Long và phiên mở thưởng <a href="https://xosodaiphat.com/xsbd-xo-so-binh-duong.html" target="_blank" rel="noopener" title="xo so Binh Duong" style="color: #2980b9; text-decoration: none; font-weight: bold;">xo so Binh Duong</a>. Đây là thời điểm mà rất nhiều bà con mong chờ sau một tuần làm việc vất vả, đón chờ những niềm vui nho nhỏ từ những tờ vé số kiến thiết.
+                </p>
+
+                <!-- Blockquote -->
+                <blockquote style="background-color: #f0f7ff; border-left: 4px solid #2980b9; margin: 20px 0; padding: 12px 18px; font-style: italic; color: #2c3e50;">
+                    "Khung giờ quay thưởng trực tiếp đài Trà Vinh diễn ra cố định từ 16h10 đến 16h35 vào chiều Thứ Sáu hàng tuần."
+                </blockquote>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Khung giờ quay thưởng trực tiếp của Xổ số miền Nam nói chung và đài Trà Vinh nói riêng bắt đầu từ 16h10 và kết thúc vào khoảng 16h35. Trong khoảng thời gian chưa đầy 30 phút này, toàn bộ 18 lần quay số sẽ được thực hiện một cách minh bạch. Việc nắm vững khung giờ này giúp bà con chủ động hơn trong việc sắp xếp công việc để có thể theo dõi kết quả cập nhật theo thời gian trực tiếp từ trường quay, đảm bảo tính công bằng và minh bạch tối cao.
+                </p>
+
+                <!-- Hình ảnh 1 -->
+                <figure style="margin: 20px 0; text-align: center;">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202611095ae10f72bace5bb5ece8afcb4bcf8f32.jpg" alt="Tra cứu XSTV mượt mà trên di động" style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                    <figcaption style="font-size: 13.5px; color: #666666; font-style: italic; margin-top: 8px;">Nguồn: Ảnh từ vesophattai.vn</figcaption>
+                </figure>
+
+                <!-- Heading 2 -->
+                <h2 style="color: #16a085; font-size: 20px; font-weight: bold; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #16a085; padding-bottom: 5px;">
+                    TRẢI NGHIỆM TRA CỨU KẾT QUẢ TRÊN NỀN TẢNG SỐ
+                </h2>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Với sự hỗ trợ của công nghệ, bà con giờ đây không còn phải phụ thuộc vào việc đứng đợi trước các đại lý vé số hay chờ xem tivi đúng giờ khi theo dõi <strong>XSTV</strong>. Chỉ cần một chiếc điện thoại thông minh có kết nối internet, bà con có thể dễ dàng tiếp cận bảng kết quả ở bất cứ đâu, dù là đang ở trên cánh đồng, tại công sở hay đang nghỉ ngơi tại nhà. Trải nghiệm người dùng số hiện nay được tối ưu hóa rất tốt với tốc độ tải trang cực nhanh, giúp tiết kiệm thời gian và dung lượng mạng.
+                </p>
+
+                <!-- Heading 3 -->
+                <h3 style="color: #2980b9; font-size: 17px; font-weight: bold; margin-top: 18px; margin-bottom: 10px;">
+                    Cách tra cứu kết quả trên điện thoại
+                </h3>
+
+                <!-- Các bước tra cứu -->
+                <p style="margin-bottom: 8px; text-align: justify;"><strong>Bước 1:</strong> Bà con truy cập vào trình duyệt web trên điện thoại và tìm kiếm thông tin về xổ số Trà Vinh.</p>
+                <p style="margin-bottom: 8px; text-align: justify;"><strong>Bước 2:</strong> Lựa chọn những kênh tra cứu uy tín có giao diện tối giản để dễ dàng quan sát.</p>
+                <p style="margin-bottom: 8px; text-align: justify;"><strong>Bước 3:</strong> Chọn đúng ngày thứ Sáu hoặc ngày bà con muốn xem lại lịch sử mở thưởng nhiều kỳ.</p>
+                <p style="margin-bottom: 15px; text-align: justify;"><strong>Bước 4:</strong> Sử dụng thao tác lướt nhẹ trên màn hình để kiểm tra từng dãy số từ giải tám đến giải đặc biệt.</p>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Một điểm cộng lớn của việc dò số trực tuyến chính là giao diện được thiết kế khoa học, màu sắc hài hòa không gây mỏi mắt, giúp bà con lớn tuổi cũng có thể dễ dàng theo dõi các con số rõ ràng. Mọi thông tin đều được cập nhật nhanh chóng, tiện lợi tại trang web Xổ số Đại Phát, mang lại sự an tâm cho người sử dụng.
+                </p>
+
+                <hr style="border: 0; height: 1px; background-color: #d1d8e0; margin: 25px 0;">
+
+                <!-- Heading 2 -->
+                <h2 style="color: #16a085; font-size: 20px; font-weight: bold; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #16a085; padding-bottom: 5px;">
+                    CHI TIẾT CƠ CẤU GIẢI THƯỞNG XỔ SỐ TRÀ VINH
+                </h2>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Khi tham gia mua vé số kiến thiết Trà Vinh với mệnh giá 10.000 VNĐ, bà con có cơ hội nhận được rất nhiều hạng giải thưởng khác nhau khi đối chiếu bảng <strong>XSTV</strong>. Cơ cấu giải thưởng của đài Trà Vinh tuân thủ đúng quy định của Xổ số miền Nam với tổng cộng 18 lần quay số. Dưới đây là danh sách các hạng giải mà bà con có thể nhận được:
+                </p>
+
+                <!-- Cơ cấu giải thưởng -->
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>1. 01 Giải Đặc biệt:</strong> Trị giá 2.000.000.000 VNĐ cho mỗi vé trúng.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>2. 10 Giải Nhất:</strong> Mỗi giải trị giá 30.000.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>3. 10 Giải Nhì:</strong> Mỗi giải trị giá 15.000.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>4. 20 Giải Ba:</strong> Mỗi giải trị giá 10.000.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>5. 70 Giải Tư:</strong> Mỗi giải trị giá 3.000.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>6. 100 Giải Năm:</strong> Mỗi giải trị giá 1.000.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>7. 300 Giải Sáu:</strong> Mỗi giải trị giá 400.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>8. 1.000 Giải Bảy:</strong> Mỗi giải trị giá 200.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>9. 10.000 Giải Tám:</strong> Mỗi giải trị giá 100.000 VNĐ.</p>
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>10. 09 Giải Phụ Đặc biệt:</strong> Mỗi giải trị giá 50.000.000 VNĐ dành cho những vé chỉ sai duy nhất chữ số hàng trăm ngàn so với giải đặc biệt.</p>
+                <p style="margin-bottom: 15px; text-align: justify;"><strong>11. 45 Giải Khuyến khích:</strong> Mỗi giải trị giá 6.000.000 VNĐ dành cho những vé sai 1 chữ số ở bất cứ hàng nào so với giải đặc biệt (ngoại trừ sai chữ số hàng trăm ngàn).</p>
+
+                <!-- Hình ảnh 2 -->
+                <figure style="margin: 20px 0; text-align: center;">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_20261109e7542555c30fd0e38656a3bb925d22ca.jpg" alt="Dò XSTV chuẩn xác tại Xổ Số Đại Phát" style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                    <figcaption style="font-size: 13.5px; color: #666666; font-style: italic; margin-top: 8px;">Nguồn: Ảnh do Xổ Số Đại Phát cung cấp</figcaption>
+                </figure>
+
+                <!-- Heading 2 -->
+                <h2 style="color: #16a085; font-size: 20px; font-weight: bold; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #16a085; padding-bottom: 5px;">
+                    THÔNG TIN ĐỊA CHỈ CÔNG TY XỔ SỐ KIẾN THIẾT TRÀ VINH
+                </h2>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Trong trường hợp bà con sở hữu những tờ vé số trúng thưởng, việc biết rõ địa chỉ trụ sở công ty là điều vô cùng quan trọng để thực hiện thủ tục nhận giải một cách an toàn và đúng quy định. Theo hồ sơ được công bố, thông tin liên hệ của đơn vị phát hành vé số Trà Vinh như sau:
+                </p>
+
+                <p style="margin-bottom: 6px; text-align: justify;"><strong>Trụ sở chính:</strong> Công ty TNHH MTV Xổ số kiến thiết Trà Vinh.</p>
+                <p style="margin-bottom: 15px; text-align: justify;"><strong>Địa chỉ:</strong> Số 54A Phạm Ngũ Lão, Phường Trà Vinh, Tỉnh Vĩnh Long.</p>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Bà con lưu ý khi đi nhận thưởng cần mang theo căn cước công dân và giữ cho tờ vé số còn nguyên vẹn, không bị rách rời hay tẩy xóa để quá trình thẩm định diễn ra thuận lợi.
+                </p>
+
+                <!-- Heading 2 -->
+                <h2 style="color: #16a085; font-size: 20px; font-weight: bold; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #16a085; padding-bottom: 5px;">
+                    XỔ SỐ KIẾN THIẾT VÀ GIÁ TRỊ ÍCH NƯỚC LỢI NHÀ
+                </h2>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Tham gia mua vé số không chỉ là một hình thức giải trí lành mạnh mà còn đóng góp một phần quan trọng vào ngân sách nhà nước. Mỗi tờ vé số bà con cầm trên tay chính là một viên gạch góp phần xây dựng các công trình phúc lợi xã hội như trường học, bệnh viện và các quỹ hỗ trợ người có hoàn cảnh khó khăn tại địa phương.
+                </p>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Đây chính là tinh thần cao đẹp của hoạt động <strong>Xổ số kiến thiết - Ích nước lợi nhà</strong>: vừa tạo ra niềm vui cho cá nhân, vừa mang lại giá trị bền vững cho cộng đồng.
+                </p>
+
+                <p style="margin-bottom: 15px; text-align: justify;">
+                    Việc tra cứu kết quả thường xuyên là cách để chúng ta đồng hành cùng sự phát triển của tỉnh nhà. Với sự tiện lợi của công nghệ, hy vọng bà con sẽ luôn có những trải nghiệm dò số thật thư giãn. Đừng quên ghé thăm trang web Xổ số Đại Phát thường xuyên để nắm bắt những thông tin mới về kết quả mở thưởng hàng ngày một cách nhanh chóng. Chúc bà con thật nhiều sức khỏe, gặp nhiều may mắn và có những giây phút xem kết quả thật thú vị mỗi chiều thứ Sáu!
+                </p>
+
+                <!-- Khối Xem thêm -->
+                <div style="background-color: #ebf5fb; border: 1px dashed #2980b9; padding: 12px 15px; border-radius: 6px; margin: 25px 0;">
+                    <span style="font-weight: bold; color: #c0392b; text-transform: uppercase; font-size: 13px;">Xem thêm:</span> 
+                    <a href="https://x.com/briannguyen0608/status/2075416615739703761" target="_blank" rel="noopener" style="color: #2980b9; font-weight: bold; text-decoration: none; margin-left: 5px;">https://x.com/briannguyen0608/status/2075416615739703761</a>
+                </div>
+
+            </article>
+        </div>
+
+        <!-- Khối Bổ Sung Điều Hướng: Bài Viết Trước / Bài Viết Sau -->
+        <nav class="post-navigation">
+            <!-- Bài viết trước -->
+            <a href="https://briannguyen.onrender.com/xo-so-mien-bac-xem-ket-qua-qua-may-tinh-tien-loi-chuan-xac.html" class="nav-card prev">
+                <span class="nav-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Bài viết trước
+                </span>
+                <span class="nav-title">Xổ số miền Bắc: Xem kết quả qua máy tính tiện lợi chuẩn xác</span>
+            </a>
+
+            <!-- Bài viết sau -->
+            <a href="https://briannguyen.onrender.com/xo-so-vinh-long-tra-cuu-ket-qua-xsvl-de-theo-doi-chi-tiet.html" class="nav-card next">
+                <span class="nav-label">
+                    Bài viết sau
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </span>
+                <span class="nav-title">Xổ số Vĩnh Long: Tra cứu kết quả XSVL dễ theo dõi chi tiết</span>
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Social Networks -->
+            <div class="footer-group">
+                <div class="footer-heading">Mạng xã hội</div>
+                <div class="social-links">
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@xosodaiphatcom" target="_blank" class="social-icon" title="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <!-- X / Twitter -->
+                    <a href="https://x.com/briannguyen0608" target="_blank" class="social-icon" title="X (Twitter)">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <!-- Pinterest -->
+                    <a href="https://www.pinterest.com/briannguyen3/" target="_blank" class="social-icon" title="Pinterest">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.37 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                    </a>
+                    <!-- Twitch -->
+                    <a href="https://www.twitch.tv/briannguyen0608" target="_blank" class="social-icon" title="Twitch">
+                        <svg viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+                    </a>
+                    <!-- Bluesky -->
+                    <a href="https://bsky.app/profile/briannguyen1.bsky.social/" target="_blank" class="social-icon" title="Bluesky">
+                        <svg viewBox="0 0 560 500"><path d="M180 141.961C244.42 190.27 267.765 240.245 280 268.081C292.235 240.245 315.58 190.27 380 141.961C426.471 107.103 488.75 87.2025 488.75 160.024C488.75 174.568 485.454 250.609 481.93 275.69C469.664 363.003 388.93 382.721 321.497 371.299C439.182 391.22 466.96 448.271 405 488.847C332.086 536.598 290.477 419.006 280 388.847C269.523 419.006 227.914 536.598 155 488.847C93.0402 448.271 120.818 391.22 238.503 371.299C171.07 382.721 90.3364 363.003 78.0701 275.69C74.5457 250.609 71.25 174.568 71.25 160.024C71.25 87.2025 133.529 107.103 180 141.961Z"/></svg>
+                    </a>
+                    <!-- Substack -->
+                    <a href="https://substack.com/@briannguyen0608" target="_blank" class="social-icon" title="Substack">
+                        <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                    </a>
+                    <!-- Medium -->
+                    <a href="https://medium.com/@briannguyen0608" target="_blank" class="social-icon" title="Medium">
+                        <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42c1.87 0 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                    </a>
+                    <!-- Tumblr -->
+                    <a href="https://www.tumblr.com/briannguyen1" target="_blank" class="social-icon" title="Tumblr">
+                        <svg viewBox="0 0 24 24"><path d="M14.563 24c-5.093 0-7.09-3.576-7.09-6.974V10.5H4.897V7.072c3.558-.99 4.887-3.924 5.087-6.225h3.69v5.925h4.156v3.728H13.66v6.075c0 1.838.747 2.768 2.378 2.768 1.155 0 2.062-.317 2.062-.317L19 22.384s-1.428 1.616-4.437 1.616z"/></svg>
+                    </a>
+                    <!-- Steemit -->
+                    <a href="https://steemit.com/@briannguyen1/" target="_blank" class="social-icon" title="Steemit">
+                        <svg viewBox="0 0 24 24"><path d="M11.979 0C5.364 0 0 5.364 0 11.979c0 6.616 5.364 11.979 11.979 11.979s11.979-5.363 11.979-11.979C23.958 5.364 18.594 0 11.979 0zm-3.514 6.746c1.17 0 2.122.951 2.122 2.122v6.224c0 1.171-.952 2.122-2.122 2.122-1.17 0-2.122-.951-2.122-2.122V8.868c0-1.171.952-2.122 2.122-2.122zm3.514-1.87c1.171 0 2.122.951 2.122 2.122v9.964c0 1.17-.951 2.122-2.122 2.122-1.17 0-2.122-.952-2.122-2.122V6.998c0-1.171.952-2.122 2.122-2.122zm3.514 1.87c1.171 0 2.122.951 2.122 2.122v6.224c0 1.171-.951 2.122-2.122 2.122-1.17 0-2.122-.951-2.122-2.122V8.868c0-1.171.952-2.122 2.122-2.122z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Liên kết hệ thống -->
+            <div class="footer-group">
+                <div class="footer-heading">Liên kết hệ thống</div>
+                <div class="internal-links">
+                    <a href="https://briannguyen5.github.io/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub Page
+                    </a>
+                    <a href="https://briannguyen.nguyenaivan2162000.workers.dev/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM13.8 17.5h-3.6l1.2-2.1c-.4-.3-.7-.7-.9-1.2l-2.4.2-.6-3.1 2.3-.8c-.1-.5 0-1 .1-1.4l-2.1-1.3 1.8-2.5 2.2 1c.4-.3.9-.6 1.4-.7l.4-2.4h3.1l.4 2.4c.5.1 1 .4 1.4.7l2.2-1 1.8 2.5-2.1 1.3c.1.4.2.9.1 1.4l2.3.8-.6 3.1-2.4-.2c-.2.5-.5.9-.9 1.2l1.2 2.1h-3.6z"/></svg> Cloudflare Worker
+                    </a>
+                    <a href="https://briannguyenn.vercel.app/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg> Vercel App
+                    </a>
+                    <a href="https://briannguyen.codeberg.page/" target="_blank" class="link-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Codeberg_Logo.svg/1280px-Codeberg_Logo.svg.png" alt="Codeberg Logo"> Codeberg Page
+                    </a>
+                    <a href="https://briannguyen0806.web.app/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M3.89 15.672L6.255.461A.542.542 0 017.27.28l2.543 4.771zm16.794 3.692l-2.25-14.03a.54.54 0 00-.912-.289L3.109 19.364l7.982 4.476a1.82 1.82 0 001.737 0zM13.61 8.2l-2.332-4.432a.54.54 0 00-.956.008l-1.92 3.611z"/></svg> Firebase App
+                    </a>
+                    <a href="https://briannguyen.pages.dev/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg> Cloudflare Pages
+                    </a>
+                    <a href="https://briannguyen.onrender.com/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.2 17.4h-2.4v-4.8h2.4v4.8zm0-7.2h-2.4V6.6h2.4v3.6z"/></svg> Render App
+                    </a>
+                    <a href="https://briannguyen0608.netlify.app/" target="_blank" class="link-badge">
+                        <svg viewBox="0 0 24 24"><path d="M6.48 11.232L0 12l6.48.768L12 24l.768-6.48L24 12l-11.232-.768L12 0z"/></svg> Netlify App
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                © <a href="https://xosodaiphat.com/" target="_blank" rel="noopener">xosodaiphat.com</a> - All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
